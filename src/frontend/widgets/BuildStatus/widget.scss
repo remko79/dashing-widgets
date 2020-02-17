@@ -1,0 +1,22 @@
+.widget-buildstatus {
+  & .widget-content {
+    position: relative;
+
+    & .date + .loader {
+      position: absolute;
+      bottom: 16px;
+      margin: 0;
+    }
+  }
+
+  & span {
+    &.title {
+      font-size: 170%;
+    }
+
+    &.date {
+      font-weight: bold;
+      font-size: 250%;
+    }
+  }
+}

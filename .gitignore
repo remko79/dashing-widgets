@@ -1,0 +1,12 @@
+.idea/
+/*.iml
+
+/*.rdb
+node_modules/
+dist/
+
+docs/
+
+/yarn-error.log
+
+/config/local*

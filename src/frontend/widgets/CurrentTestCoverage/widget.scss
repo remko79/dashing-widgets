@@ -1,0 +1,19 @@
+.widget-currenttestcoverage {
+  & .widget-content {
+    flex-direction: row;
+
+    & > div {
+      max-height: 18vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    & .apexcharts-canvas {
+      margin: 0 auto;
+    }
+
+    & .apexcharts-datalabels-group {
+      font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.widget-testsgraph {
+  & .widget-content {
+    flex-direction: row;
+
+    & > div {
+      max-height: 19vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    & .apexcharts-canvas {
+      height: 19vh;
+      margin: 0 auto;
+      position: relative;
+      top: -1vh;
+    }
+
+    & .apexcharts-datalabels-group {
+      font-weight: bold;
+    }
+  }
+}

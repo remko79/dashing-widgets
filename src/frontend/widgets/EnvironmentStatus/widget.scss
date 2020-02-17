@@ -1,0 +1,43 @@
+.widget-environmentstatus {
+  & .widget-content {
+    & .no-environments {
+      font-size: 667%;
+      font-weight: bold;
+    }
+
+    & ul {
+      list-style: none;
+      font-size: 150%;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+
+      &.latestOnly {
+        font-size: 200%;
+      }
+
+      & li {
+        margin-top: 1em;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+      & .envTitle {
+        display: block;
+      }
+
+      & .envStatus {
+        &.success {
+          display: none;
+        }
+        &:before {
+          content: ' - ';
+          display: inline-block;
+          width: 1em;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.widget {
+  &-oncall {
+    & .widget-content {
+      font-size: 400%;
+      font-weight: bold;
+      word-break: break-word;
+      text-align: center;
+
+      & [data-length="long"] {
+        font-size: 80%;
+      }
+    }
+  }
+}

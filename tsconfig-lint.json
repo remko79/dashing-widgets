@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "jsx": "preserve",
+    "noImplicitAny": false,
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "config/**/*",
+    "src/**/*",
+    "webpack.config.js"
+  ]
+}
