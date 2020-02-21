@@ -18,22 +18,7 @@ const katalon: ICfgKatalon = {
   },
 
   projects: {
-    project1_desktop: {
-      id: 20001,
-      testSuite: 'Desktop-Regression',
-    },
-    project1_mobile: {
-      id: 20001,
-      testSuite: 'Mobile-Regression',
-    },
-    project1_app: {
-      id: 20001,
-      testSuite: 'App-Regression',
-    },
-    project1_running: {
-      id: 20001,
-      status: 'RUNNING',
-    },
+    // examples in test.ts
   },
 };
 

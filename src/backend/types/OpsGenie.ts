@@ -21,8 +21,11 @@ export type IOpenAlertsResult = {
  * Query parameters for searching alerts.
  */
 export type AlertQueryParams = {
-  /** Team names */
+  /** Include teams in result */
   teams?: string[];
+
+  /** Exclude teams from result */
+  notTeams?: string[];
 
   /** Priorities to search for */
   priorities: Priority[];

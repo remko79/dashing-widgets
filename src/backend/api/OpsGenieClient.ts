@@ -33,6 +33,10 @@ export default class OpsGenieClient {
       const encoded = params.teams.map((val) => encodeURIComponent(val)).join('%20OR%20');
       res.push(`teams%3D%28${encoded}%29`); // teams = (... OR ...)
     }
+    if (params.notTeams !== undefined && params.notTeams.length > 0) {
+      const encoded = params.notTeams.map((val) => encodeURIComponent(val)).join('%20OR%20');
+      res.push(`not teams%3D%28${encoded}%29`); // not teams = (... OR ...)
+    }
     if (params.priorities.length > 0) {
       res.push(`priority%3D%28${params.priorities.join('%20OR%20')}%29`); // priority = (P1 OR P2 OR ...)
     }
