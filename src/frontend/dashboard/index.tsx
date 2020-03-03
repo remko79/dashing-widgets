@@ -21,6 +21,8 @@ interface IState {
 class Dashboard extends React.PureComponent<IProps, IState> {
   private screensaverTimerId?: number;
 
+  private cfgHash?: string;
+
   protected constructor(props) {
     super(props);
 
@@ -145,6 +147,16 @@ class Dashboard extends React.PureComponent<IProps, IState> {
     }
   };
 
+  handleCfgHashUpdate = (socket: SocketIOClient.Socket): void => {
+    socket.on('CFG_HASH', (result) => {
+      if (this.cfgHash && this.cfgHash !== result) {
+        window.location.reload();
+      } else if (!this.cfgHash) {
+        this.cfgHash = result;
+      }
+    });
+  };
+
   render() {
     const { config: { widgets, columns } } = this.props;
     const { screensaver } = this.state;
@@ -154,6 +166,7 @@ class Dashboard extends React.PureComponent<IProps, IState> {
     }
 
     const socket = socketIOClient.connect();
+    this.handleCfgHashUpdate(socket);
 
     const classes = classNames({
       dashboard: true,

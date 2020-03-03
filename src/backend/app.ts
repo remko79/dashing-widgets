@@ -1,6 +1,8 @@
 import express, { Request, Response } from 'express';
 import http from 'http';
 import socketIo, { Socket } from 'socket.io';
+import config from 'config';
+import hash from 'object-hash';
 
 import { Logger } from './lib/logger';
 import devExpress from './dev-express';
@@ -41,6 +43,12 @@ io.on('connect', (socket: Socket) => {
     Logger.info(`sockets: client disconnected: ${socket.id}`);
   });
 });
+
+// Send the hash of the config every hour, so clients can reload when it's changed.
+const cfgHash = hash(config);
+setInterval(() => {
+  io.emit('CFG_HASH', cfgHash);
+}, 60 * 60 * 1000);
 
 server.listen(port, () => {
   Logger.info(`running on port: ${port}`);
