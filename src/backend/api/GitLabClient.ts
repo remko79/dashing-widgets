@@ -67,7 +67,7 @@ export default class GitLabClient {
     try {
       const data: IGitLabProjectResult[] = [];
 
-      const res = await this.client.request(gql);
+      const res: {} = await this.client.request(gql);
       const allEnvironments = await this.fetchAllEnvironments(projects);
 
       Object.keys(res).forEach((key) => {
