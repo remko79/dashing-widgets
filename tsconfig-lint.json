@@ -9,6 +9,7 @@
     "esModuleInterop": true
   },
   "include": [
+    ".eslintrc.js",
     "config/**/*",
     "src/**/*",
     "webpack.config.js"

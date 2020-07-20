@@ -3,7 +3,7 @@ module.exports = {
     'airbnb-typescript',
   ],
   parserOptions: {
-    project: './tsconfig-lint.json'
+    project: './tsconfig-lint.json',
   },
   env: {
     browser: true,
