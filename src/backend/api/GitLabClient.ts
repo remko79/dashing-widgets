@@ -1,5 +1,6 @@
 import { GraphQLClient } from 'graphql-request';
 import fetch from 'node-fetch';
+import { Headers } from 'cross-fetch';
 import { Logger } from '../lib/logger';
 import {
   IBuildStatus,
@@ -36,6 +37,9 @@ type EnvironmentInfo = {
 interface EnvironmentList {
   [key: string]: IEnvironment[];
 }
+
+// Workaround, see https://github.com/prisma-labs/graphql-request/issues/206
+global.Headers = global.Headers || Headers;
 
 export default class GitLabClient {
   private client: GraphQLClient;
