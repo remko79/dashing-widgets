@@ -30,10 +30,6 @@ const projectFragment = `fragment projectInfo on Project {
   }
 }`;
 
-type EnvironmentInfo = {
-  [key: string]: IEnvironment;
-};
-
 interface EnvironmentList {
   [key: string]: IEnvironment[];
 }

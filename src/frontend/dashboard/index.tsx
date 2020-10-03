@@ -1,5 +1,6 @@
 import * as React from 'react';
 import socketIOClient from 'socket.io-client';
+import type SocketIOClient from 'socket.io-client';
 import classNames from 'classnames';
 
 import SocketContext from '../lib/SocketContext';

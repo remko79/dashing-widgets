@@ -27,7 +27,7 @@ export enum WidgetType {
   EnvironmentStatus,
   OnCall,
   OpenAlerts,
-  Placeholder,
+  Placeholder
 }
 
 /**

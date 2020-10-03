@@ -7,6 +7,7 @@ export interface IExecutions {
   executions: IKatalonExecution[];
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 class MultiChart<P extends {} & IExecutions, S extends {} & IExecutions> extends React.Component<IExecutions, S> {
   constructor(props) {
     super(props);

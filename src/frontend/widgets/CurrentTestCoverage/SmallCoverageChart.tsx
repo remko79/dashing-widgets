@@ -9,6 +9,7 @@ export interface ICoverage {
   coverage?: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 class SmallCoverageChart<P extends {} & ICoverage, S extends {} & ICoverage> extends React.PureComponent<ICoverage, S> {
   constructor(props) {
     super(props);
