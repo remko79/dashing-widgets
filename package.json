@@ -18,7 +18,7 @@
     "docs": "typedoc --theme minimal --out docs ./typed_config.ts"
   },
   "dependencies": {
-    "apexcharts": "^3.10.1",
+    "apexcharts": "^3.24.0",
     "bottleneck": "^2.19.5",
     "bull": "^3.12.0",
     "classnames": "^2.2.6",
