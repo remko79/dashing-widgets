@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import oauth, { AccessToken } from 'simple-oauth2';
+import * as oauth from 'simple-oauth2';
 import { Logger } from '../lib/logger';
 import {
   ICfgKatalon,
@@ -14,7 +14,7 @@ export default class KatalonClient {
 
   private readonly tokenConfig: oauth.PasswordTokenConfig;
 
-  private accessToken?: AccessToken;
+  private accessToken?: oauth.AccessToken;
 
   private readonly apiEndpoint: string;
 
@@ -50,9 +50,8 @@ export default class KatalonClient {
       }
     } else {
       try {
-        const oauth2 = oauth.create(this.credentials);
-        const result = await oauth2.ownerPassword.getToken(this.tokenConfig);
-        this.accessToken = oauth2.accessToken.create(result);
+        const client = new oauth.ResourceOwnerPassword(this.credentials);
+        this.accessToken = await client.getToken(this.tokenConfig);
         return true;
       } catch (error) {
         Logger.error('Katalon: Unable create access token', error);

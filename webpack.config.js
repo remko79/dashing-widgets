@@ -3,8 +3,7 @@ const webpack = require('webpack');
 const config = require('config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = (env, argv) => {
   process.env.NODE_ENV = argv.mode;
@@ -12,6 +11,8 @@ module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
 
   return {
+    mode: isProduction ? 'production' : 'development',
+
     entry: './src/frontend/index',
 
     output: {
@@ -33,14 +34,7 @@ module.exports = (env, argv) => {
         {
           test: /\.scss$/,
           use: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                hmr: !isProduction,
-                // if hmr does not work, this is a forceful method.
-                reloadAll: true,
-              },
-            },
+            MiniCssExtractPlugin.loader,
             'css-loader',
             'sass-loader',
           ],
@@ -58,8 +52,8 @@ module.exports = (env, argv) => {
 
     optimization: {
       minimizer: [
-        new TerserPlugin({}),
-        new OptimizeCSSAssetsPlugin({}),
+        new CssMinimizerPlugin(),
+        '...', // minimize using defaults too
       ],
     },
 
@@ -68,18 +62,6 @@ module.exports = (env, argv) => {
         template: 'src/backend/index.html',
         filename: isProduction ? '../frontend/index.html' : 'index.html',
         favicon: 'src/frontend/favicon.ico',
-        minify: isProduction ? {
-          removeComments: true,
-          collapseWhitespace: true,
-          removeRedundantAttributes: true,
-          useShortDoctype: true,
-          removeEmptyAttributes: true,
-          removeStyleLinkTypeAttributes: true,
-          keepClosingSlash: true,
-          minifyJS: true,
-          minifyCSS: true,
-          minifyURLs: true,
-        } : {},
       }),
       new MiniCssExtractPlugin({
         filename: isProduction ? '[name].[chunkhash:8].css' : '[name].css',

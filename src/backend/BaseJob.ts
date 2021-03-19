@@ -12,7 +12,7 @@ export default abstract class BaseJob {
 
   abstract getSchedule(): ICfgJobSchedule | null;
 
-  abstract async doWork(): Promise<any>;
+  abstract doWork(): Promise<any>;
 
   setResultStorage = (storage: Storage): void => {
     this.resultStorage = storage;

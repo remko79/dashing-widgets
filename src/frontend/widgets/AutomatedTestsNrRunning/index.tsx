@@ -29,7 +29,7 @@ class AutomatedTestsNrRunning extends BaseSocketedWidget<IProps & IParentProps, 
       return;
     }
 
-    const { projects }: {projects: IKatalonResult[]} = result;
+    const { projects }: { projects: IKatalonResult[] } = result;
     const filtered = projects.find((item) => item.key === this.props.project);
     if (!filtered) {
       this.updateStateWarning({ count: -1 });

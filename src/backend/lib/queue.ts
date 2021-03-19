@@ -40,7 +40,7 @@ const cleanUpQueue = async () => {
   });
 };
 
-export default async (jobs: {[key: string]: BaseJob}, io: SocketIO.Server, storage: Storage): Promise<void> => {
+export default async (jobs: { [key: string]: BaseJob }, io: SocketIO.Server, storage: Storage): Promise<void> => {
   initQueue(io);
   await cleanUpQueue();
 

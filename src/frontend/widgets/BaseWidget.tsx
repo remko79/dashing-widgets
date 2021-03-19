@@ -8,7 +8,7 @@ export enum Status {
   UNKNOWN = 'unknown',
   ERROR = 'error',
   WARNING = 'warning',
-  OK = 'ok'
+  OK = 'ok',
 }
 
 export interface IProps {

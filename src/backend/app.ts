@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import http from 'http';
-import socketIo, { Socket } from 'socket.io';
+import * as SocketIO from 'socket.io';
 import config from 'config';
 import hash from 'object-hash';
 
@@ -28,10 +28,10 @@ if (dev) {
 const port = 3000;
 
 const server = http.createServer(app);
-const io = socketIo(server);
+const io = new SocketIO.Server(server);
 const storage = new Storage();
 
-io.on('connect', (socket: Socket) => {
+io.on('connect', (socket: SocketIO.Socket) => {
   Logger.info(`sockets: client connected: ${socket.id}`);
   storage.getLastJobResults().then((results: StorageJobResult[]) => {
     results.forEach((res) => {

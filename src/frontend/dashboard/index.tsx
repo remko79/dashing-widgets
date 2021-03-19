@@ -1,6 +1,5 @@
 import * as React from 'react';
-import socketIOClient from 'socket.io-client';
-import type SocketIOClient from 'socket.io-client';
+import SocketIOClient from 'socket.io-client';
 import classNames from 'classnames';
 
 import SocketContext from '../lib/SocketContext';
@@ -166,7 +165,7 @@ class Dashboard extends React.PureComponent<IProps, IState> {
       return <DashboardOverview />;
     }
 
-    const socket = socketIOClient.connect();
+    const socket = SocketIOClient.io();
     this.handleCfgHashUpdate(socket);
 
     const classes = classNames({
