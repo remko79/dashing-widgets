@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import Dashboard from './dashboard';
 import NotFound from './dashboard/NotFound';
 import DashboardOverview from './dashboard/DashboardOverview';
@@ -10,17 +10,15 @@ import './styles/index.scss';
 
 const routing = (
   <BrowserRouter>
-    <Switch>
-      <Route key="/" exact path="/" component={DashboardOverview} />
+    <Routes>
+      <Route key="/" path="/" element={(<DashboardOverview />)} />
       {
         DW_CONFIG.dashboards.map((dashboard) => (
-          <Route key={dashboard.url} exact path={dashboard.url}>
-            <Dashboard config={dashboard} />
-          </Route>
+          <Route key={dashboard.url} path={dashboard.url} element={(<Dashboard config={dashboard} />)} />
         ))
       }
-      <Route key="notfound" component={NotFound} />
-    </Switch>
+      <Route key="notfound" path="*" element={(<NotFound />)} />
+    </Routes>
   </BrowserRouter>
 );
 

@@ -83,7 +83,7 @@ export default class OpsGenieClient {
             count: -1,
           };
         })
-        .catch((err) => {
+        .catch((err: any) => {
           Logger.error(`Error fetching open alerts for: ${alias}`, err);
           return {
             key: alias,
@@ -91,7 +91,7 @@ export default class OpsGenieClient {
             count: -1,
           };
         }));
-    } catch (error) {
+    } catch (error: any) {
       Logger.error('OpsGenie: Error fetching open alerts', error.message);
       throw error;
     }
@@ -134,7 +134,7 @@ export default class OpsGenieClient {
             names: [],
           };
         }))
-        .catch((err) => {
+        .catch((err: any) => {
           Logger.error(`Error fetching on call for: ${alias}`, err);
           return {
             key: alias,
@@ -142,7 +142,7 @@ export default class OpsGenieClient {
             names: [],
           };
         });
-    } catch (error) {
+    } catch (error: any) {
       Logger.error('OpsGenie: Error fetching on calls', error.message);
       throw error;
     }

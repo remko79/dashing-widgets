@@ -106,7 +106,7 @@ export default class GitLabClient {
         });
       });
       return data;
-    } catch (error) {
+    } catch (error: any) {
       Logger.error('GitLab: Fetching project info', error.message);
       throw error;
     }
@@ -163,7 +163,7 @@ export default class GitLabClient {
             }],
           };
         });
-    } catch (error) {
+    } catch (error: any) {
       Logger.error('GitLab: Fetching environment info', error.message);
       throw error;
     }

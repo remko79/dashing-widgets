@@ -12,27 +12,27 @@ const dashboard: ICfgDashboard = {
     {
       type: WidgetType.AutomatedTestsNrRunning,
       title: 'Project 1 - Running',
-      extraProps: { project: 'project1_running' },
+      extraProps: { project: 'telegraaf_running' },
     },
     { type: WidgetType.Placeholder, title: '' },
     {
       type: WidgetType.AutomatedTestsGraph,
       title: 'Desktop - Regression',
       widgetSize: 2,
-      extraProps: { project: 'project1_desktop' },
+      extraProps: { project: 'telegraaf_desktop' },
     },
 
     {
       type: WidgetType.AutomatedTestsRunning,
       title: 'Running Test',
-      extraProps: { project: 'project1_running' },
+      extraProps: { project: 'telegraaf_running' },
     },
     { type: WidgetType.Placeholder, title: '' },
     {
       type: WidgetType.AutomatedTestsGraph,
       title: 'Mobile - Regression',
       widgetSize: 2,
-      extraProps: { project: 'project1_mobile' },
+      extraProps: { project: 'telegraaf_mobile' },
     },
     { type: WidgetType.Placeholder, title: '' },
     { type: WidgetType.Placeholder, title: '' },
@@ -40,7 +40,7 @@ const dashboard: ICfgDashboard = {
       type: WidgetType.AutomatedTestsGraph,
       title: 'App - Regression',
       widgetSize: 2,
-      extraProps: { project: 'project1_app' },
+      extraProps: { project: 'telegraaf_desking' },
     },
   ],
 };

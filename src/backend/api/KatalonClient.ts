@@ -53,7 +53,7 @@ export default class KatalonClient {
         const client = new oauth.ResourceOwnerPassword(this.credentials);
         this.accessToken = await client.getToken(this.tokenConfig);
         return true;
-      } catch (error) {
+      } catch (error: any) {
         Logger.error('Katalon: Unable create access token', error);
       }
     }
@@ -146,7 +146,7 @@ export default class KatalonClient {
             executions: executions.reverse(),
           };
         });
-    } catch (error) {
+    } catch (error: any) {
       Logger.error('Katalon: Fetching executions', error);
       throw error;
     }
