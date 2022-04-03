@@ -1,12 +1,12 @@
 import * as React from 'react';
-import Chart from 'react-apexcharts';
+import Chart, { Props } from 'react-apexcharts';
 
 // @ts-ignore
 import svg from './chart-background.svg';
 
 export interface ICoverage {
-  name?: string;
-  coverage?: number;
+  name: string;
+  coverage: number;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -50,7 +50,7 @@ class SmallCoverageChart<P extends {} & ICoverage, S extends {} & ICoverage> ext
       return null;
     }
 
-    const options = {
+    const options: Props = {
       plotOptions: {
         radialBar: {
           startAngle: -125,
