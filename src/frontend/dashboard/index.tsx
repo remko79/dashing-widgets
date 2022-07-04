@@ -176,6 +176,7 @@ class Dashboard extends React.PureComponent<IProps, IState> {
 
     return (
       <>
+        {/* eslint-disable-next-line react/jsx-no-constructed-context-values */}
         <SocketContext.Provider value={{ socket }}>
           <div className={classes}>
             { widgets.map((widget, idx) => this.renderWidget(widget, idx)) }
